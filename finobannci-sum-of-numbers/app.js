@@ -23,7 +23,17 @@
 
 
 function sumFibs(num) {
-  return num;
+  let prevNum = 0,
+      currNum = 1,
+      result = 0;
+  while (currNum <= num) {
+    if (currNum % 2 !== 0) {
+      result += currNum;
+    }
+    currNum += prevNum;
+    prevNum = currNum - prevNum
+  }
+  return result;
 }
 
-sumFibs(4);
+console.log(sumFibs(4));
