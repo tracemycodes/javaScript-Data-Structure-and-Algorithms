@@ -10,35 +10,25 @@
 
 // We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.
 
-
 // /\w+/
 
-// console.log("object");
-
-let figurs = [1, 3, 5, 6] ;
-let figuers = [1, 3, 9, 6] ;
-
-for (let i = 0; i < figurs.length; i++) {
-  const element = figurs[i];
-  if (figurs.indexOf(element) == figuers.indexOf(element)) {
-    console.log(true, element);
-  } else {
-    console.log(false, element);
-  }
-  
-}
-
-// console.log(figurs.includes);
-
-// const replaced = str.replace(/[^a-z0-9]/gi, '');
-
 function palindrome(str) {
-  // return true;
-  // console.log(str);
-  const newStr = str.replace(/[^a-z0-9]/gi, '').split('')
-  const reverseStr = newStr.reverse()
-  // console.log(newStr.reverse());
-  // console.log(reverseStr.includes(newStr))
+  const stringStr = str.toLowerCase();
+  const newStr = stringStr.replace(/[^a-z0-9]/gi, "").split("");
+
+  const mid = Math.floor(newStr.length / 2);
+
+  let state = true;
+
+  for (let i = 0; i < mid; i++) {
+    
+    if (newStr[i] !== newStr[newStr.length - 1 - i]) {
+      state = false;
+    } 
+    
+  }
+
+  return state;
 }
 
-palindrome("eye");
+console.log(palindrome("1 eye for of 1 eye."));
