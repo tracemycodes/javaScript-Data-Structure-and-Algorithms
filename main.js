@@ -1,7 +1,7 @@
 
 // STRING AND ITS MANIPULATIONS
 
-// let s = "Hello world";
+let s = "Hello woRld";
 
 // obtaining portions of a string
 // s.substring(1, 7);
@@ -11,12 +11,12 @@
 // vas.split(" ")
 
 // console.log();
-let count = 0;
-if (count) {
-  console.log("object");
-} else {
-  console.log("hello");
-}
+// let count = 0;
+// if (count) {
+//   console.log("object");
+// } else {
+//   console.log("hello");
+// }
 
 
 // SEARCHING A STRING
@@ -42,8 +42,8 @@ if (count) {
 
 // CREATING MODIFIED VERSIONS OF A STRING
 
-// s.replace("llo", "ya") // => "Heya, world"
-// s.toLowerCase() // => "hello, world"
+// s.replace('Hel', 'ya') // => "Heya, world"
+// let sNew = s.toLowerCase() // => "hello, world"
 // s.toUpperCase() // => "HELLO, WORLD"
 // s.normalize() // Unicode NFC normalization: ES6
 // s.normalize("NFD") // NFD normalization. Also "NFKC", "NFKD"
@@ -59,7 +59,7 @@ if (count) {
 
 
 
-// console.log();
+// console.log(sNew);
 
 
 
@@ -69,11 +69,12 @@ if (count) {
 // let o = { x: 1 }; // Start with an object
 // o.x = 2; // Mutate it by changing the value of a property
 // o.y = 3; // Mutate it again by adding a new property
-// let a = [1,2,3]; // Arrays are also mutable
+// let a = [5,2,3,4,1]; // Arrays are also mutable
+// let b = [11,12]
 // a[0] = 0; // Change the value of an array element
-// a[3] = 4; // Add a new array element
+// Add a new array element
 
-// console.log(o)
+// console.log(c)
 
 
 
@@ -121,7 +122,7 @@ if (count) {
 
 
 // // using the for in loop with objects because objects are iterable
-let o = { x: 1, y: 2, z: 3 };
+// let o = { x: 1, y: 2, z: 3 };
 // let keys = "";
 // for(let k of Object.keys(o)) {
 // keys += k;
@@ -308,7 +309,7 @@ let o = { x: 1, y: 2, z: 3 };
 // console.log(val);
 
 
-
+console.log(Math.SQRT2);
 
 
 
@@ -1080,13 +1081,13 @@ let o = { x: 1, y: 2, z: 3 };
 
 // console.log(prompt('hello'));
 
-const obj = {
-  namt: 'fish',
-  age: 5
-}
+// const obj = {
+//   namt: 'fish',
+//   age: 5
+// }
 
 
 
-localStorage.setItem('name', JSON.stringify(obj))
+// localStorage.setItem('name', JSON.stringify(obj))
 
-console.log(obj);
+// console.log(obj);
