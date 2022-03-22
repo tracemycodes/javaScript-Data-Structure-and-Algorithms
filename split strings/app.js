@@ -5,11 +5,20 @@
 
 
 function solution(str){
-   
-  
 
-  return str
+  let splitStr = str.split('')
+  splitStr.length % 2 == 0 ? splitStr : splitStr.push('_')
+
+  let midStr = splitStr.length / 2
+  let newArr = []
+ 
+   for (let i = 0; i < midStr; i++) {
+     let mutant = splitStr.splice(0, 2).join('')
+     newArr.push(mutant)
+   }
+
+  return newArr
 }
 
 
-console.log(solution("abcdef"));
+console.log(solution("abcdefh"));
