@@ -30,4 +30,7 @@ function sumPrimes(num) {
 }
 
 sumPrimes(10);
+
+
+
 // console.log(sumPrimes(10))
