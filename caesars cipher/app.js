@@ -22,12 +22,17 @@ function rot13(str) {
   let alphaEnd = 'NOPQRSTUVWXYZ';
 
   for (let i = 0; i < str.length; i++) {
-    const element = str[i];
+    const element = str[i].toUpperCase();
+
 
     if (alphaStart.indexOf(element) >= 0) {
-      decResult += alphaEnd[alphaStart.indexOf(element)];
+      element == str[i]
+        ? (decResult += alphaEnd[alphaStart.indexOf(element)].toUpperCase())
+        : (decResult += alphaEnd[alphaStart.indexOf(element)].toLowerCase());
     } else if (alphaEnd.indexOf(element) >= 0) {
-      decResult += alphaStart[alphaEnd.indexOf(element)];
+      element == str[i]
+        ? (decResult += alphaStart[alphaEnd.indexOf(element)].toUpperCase())
+        : (decResult += alphaStart[alphaEnd.indexOf(element)].toLowerCase());
     } else {
       decResult += element;
     }
@@ -36,5 +41,4 @@ function rot13(str) {
   return decResult;
 }
 
-// Change the inputs below to test
-console.log(rot13('SERR PBQR PNZC'));
+console.log(rot13('Test'));
