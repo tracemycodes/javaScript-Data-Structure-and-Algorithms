@@ -31,7 +31,6 @@ function to_nato(words) {
     'o',
     'p',
     'q',
-    'q',
     'r',
     's',
     't',
@@ -43,7 +42,7 @@ function to_nato(words) {
     'z'
   ];
   let wordy = [
-    'Alpha',
+    'Alfa',
     'Bravo',
     'Charlie',
     'Delta',
@@ -66,7 +65,7 @@ function to_nato(words) {
     'Uniform',
     'Victor',
     'Whiskey',
-    'X-ray',
+    'Xray',
     'Yankee',
     'Zulu'
   ];
@@ -75,12 +74,12 @@ function to_nato(words) {
 
   for (let i = 0; i < words.length; i++) {
     const element = words[i];
-    console.log(element);
+    // console.log(element);
     let wordIndex = letters.indexOf(element.toLowerCase())
 
-    console.log(letters.indexOf(element.toLowerCase()));
+    // console.log(letters.indexOf(element.toLowerCase()));
+    // console.log(wordIndex, wordy[16], letters[16], element);
     if (wordIndex >= 0) {
-      console.log(wordy[wordIndex]);
       finalStr += wordy[wordIndex] + ' '
     } else if (element == ' ') {
       finalStr += ''
@@ -91,7 +90,8 @@ function to_nato(words) {
     
   }
 
-  return finalStr;
+
+  return finalStr.slice(0, finalStr.length - 1);
 }
 // function to_nato(words) {
 //   let newStr = [...words.split(' ')]
@@ -113,4 +113,4 @@ function to_nato(words) {
 //   return finalStr
 // }
 
-console.log(to_nato('If you can read'));
+to_nato('If you can read')
