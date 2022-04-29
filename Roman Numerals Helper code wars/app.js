@@ -21,9 +21,75 @@
 // RomanNumerals.toRoman(1000); // should return 'M'
 // RomanNumerals.fromRoman('M'); // should return 1000
 
-class RomanNumerals {
-  constructor() {
-    this.lookup = {
+// class RomanNumerals {
+//   constructor() {
+//     this.lookup = {
+//       M: 1000,
+//       CM: 900,
+//       D: 500,
+//       CD: 400,
+//       C: 100,
+//       XC: 90,
+//       L: 50,
+//       XL: 40,
+//       X: 10,
+//       IX: 9,
+//       V: 5,
+//       IV: 4,
+//       I: 1,
+//     };
+//   }
+//   toRoman(num) {
+//     let roman = '';
+//     for (let i in this.lookup) {
+//       while (num >= this.lookup[i]) {
+//         roman += i;
+//         num -= this.lookup[i];
+//       }
+//     }
+//     return roman;
+//   }
+//   fromRoman(roman) {
+//     let numerial = [...roman.split('')];
+
+//     let total = 0,
+//           current,
+//           currentValue,
+//           next,
+//           nextValue;
+
+//     for (let i = 0; i < numerial.length; i++) {
+//       current = numerial[i];
+//       currentValue = this.lookup[current];
+//       next = numerial[i + 1];
+//       nextValue = this.lookup[next]
+
+//       if (currentValue < nextValue) {
+//         total -= currentValue
+//       } else {
+//         total += currentValue
+//       }
+
+      
+//     }
+
+//     return total;
+
+//   }
+// }
+
+// const romanNumerals = new RomanNumerals();
+
+// romanNumerals.fromRoman('IV');
+
+// console.log(romanNumerals.toRoman(1350));
+
+
+function RomanNumerals () {
+}
+
+RomanNumerals.toRoman = function (num) {
+  let lookup = {
       M: 1000,
       CM: 900,
       D: 500,
@@ -38,19 +104,34 @@ class RomanNumerals {
       IV: 4,
       I: 1,
     };
-  }
-  toRoman(num) {
-    let roman = '';
-    for (let i in this.lookup) {
-      while (num >= this.lookup[i]) {
+  let roman = '';
+    for (let i in lookup) {
+      while (num >= lookup[i]) {
         roman += i;
-        num -= this.lookup[i];
+        num -= lookup[i];
       }
     }
+  
     return roman;
-  }
-  fromRoman(roman) {
-    let numerial = [...roman.split('')];
+}
+
+RomanNumerals.fromRoman = function (roman) {
+  let lookup = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1,
+    };
+  let numerial = [...roman.split('')];
 
     let total = 0,
           current,
@@ -60,9 +141,9 @@ class RomanNumerals {
 
     for (let i = 0; i < numerial.length; i++) {
       current = numerial[i];
-      currentValue = this.lookup[current];
+      currentValue = lookup[current];
       next = numerial[i + 1];
-      nextValue = this.lookup[next]
+      nextValue = lookup[next]
 
       if (currentValue < nextValue) {
         total -= currentValue
@@ -74,10 +155,7 @@ class RomanNumerals {
     }
 
     return total;
-
-  }
 }
 
-const romanNumerals = new RomanNumerals();
 
-romanNumerals.fromRoman('IV');
+console.log(RomanNumerals.fromRoman("XX"));
