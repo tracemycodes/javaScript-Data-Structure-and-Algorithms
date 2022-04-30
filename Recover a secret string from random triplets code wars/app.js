@@ -47,7 +47,7 @@ var recoverSecret = function(triplets) {
   
     }
   })
-  return newArr.join()
+  return newArr.join('')
 }
 
 recoverSecret(triplets1);
