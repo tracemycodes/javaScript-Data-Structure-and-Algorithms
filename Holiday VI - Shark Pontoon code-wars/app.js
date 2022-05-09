@@ -38,3 +38,13 @@ function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
 
 
 //  39 and 131 and 3 and 4 and false
+
+
+
+
+
+function noSpace(x){
+  return x.split(' ').join('')
+}
+
+noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
