@@ -43,8 +43,20 @@ function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
 
 
 
-function noSpace(x){
-  return x.split(' ').join('')
+// function noSpace(x){
+//   return x.split(' ').join('')
+// }
+
+// noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
+
+
+
+
+function findArr (params, int) {
+  let ans = params.includes(int) ? 'Yes' : 'No';
+  return ans;
 }
 
-noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
+
+
+console.log(findArr([3,4,2,8], 5));
