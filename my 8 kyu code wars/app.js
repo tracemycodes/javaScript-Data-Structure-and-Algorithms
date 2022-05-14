@@ -47,6 +47,6 @@ function digitize(n) {
   return [...n.toString().split('')].map(item => Number(item)).reverse()
 }
 
-console.log(digitize(35231));
+// console.log(digitize(35231));
 
 
