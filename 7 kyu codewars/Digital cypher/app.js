@@ -48,3 +48,7 @@ function encode(str,  n)
 {
   return str;
 }
+
+
+
+encode("masterpiece",1939)
