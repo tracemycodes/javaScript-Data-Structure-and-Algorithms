@@ -45,29 +45,24 @@
 
 
 function encode(str,  n){
-  // console.log("object");
   let strArr = [...str.split('')]
   let numArr = [...n.toString().split('')]
+  let letterArr = [ 'a',  'b',  'c',  'd',  'e',  'f',  'g',  'h',  'i',  'j',  'k',  'l',  'm', 'n',  'o',  'p',  'q',  'r',  's',  't',  'u',  'v',  'w',  'x',  'y',  'z']
   let fillNum = []
   let newArr = []
 
-  let fillArr = Array(strArr.length)
-
-  // let num = fillArr.length
 
   while (newArr.length < strArr.length) {
     fillNum.push(numArr)
     // console.log(fillNum.flat());
     newArr = [...fillNum.flat()] 
-    // num--
-    // console.log(fillNum);
   }
 
+  let ansArr = strArr.map((item, index) =>     
+  (letterArr.indexOf(item) + 1) + parseInt(newArr[index])
+  )
 
- 
-
-  console.log(newArr);
-  console.log(fillNum);
+  return ansArr;
 
 }
 
