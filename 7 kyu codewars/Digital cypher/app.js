@@ -44,9 +44,31 @@
 
 
 
-function encode(str,  n)
-{
-  return str;
+function encode(str,  n){
+  // console.log("object");
+  let strArr = [...str.split('')]
+  let numArr = [...n.toString().split('')]
+  let fillNum = []
+  let newArr = []
+
+  let fillArr = Array(strArr.length)
+
+  // let num = fillArr.length
+
+  while (newArr.length < strArr.length) {
+    fillNum.push(numArr)
+    // console.log(fillNum.flat());
+    newArr = [...fillNum.flat()] 
+    // num--
+    // console.log(fillNum);
+  }
+
+
+ 
+
+  console.log(newArr);
+  console.log(fillNum);
+
 }
 
 
