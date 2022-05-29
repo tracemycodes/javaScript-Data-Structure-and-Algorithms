@@ -1,7 +1,5 @@
 // Digital cypher
 
-
-
 // Introduction
 
 // Digital Cypher assigns to each letter of the alphabet unique number. For example:
@@ -10,7 +8,6 @@
 //  1  2  3  4  5  6  7  8  9 10 11 12 13
 //  n  o  p  q  r  s  t  u  v  w  x  y  z
 // 14 15 16 17 18 19 20 21 22 23 24 25 26
-
 
 // Instead of letters in encrypted word we write the corresponding number, eg. The word scout:
 
@@ -42,30 +39,49 @@
 // Encode("scout",1939);  ==>  [ 20, 12, 18, 30, 21]
 // Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
 
+function encode(str, n) {
+  let strArr = [...str.split('')];
+  let numArr = [...n.toString().split('')];
+  let letterArr = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
+  let fillNum = [];
 
-
-function encode(str,  n){
-  let strArr = [...str.split('')]
-  let numArr = [...n.toString().split('')]
-  let letterArr = [ 'a',  'b',  'c',  'd',  'e',  'f',  'g',  'h',  'i',  'j',  'k',  'l',  'm', 'n',  'o',  'p',  'q',  'r',  's',  't',  'u',  'v',  'w',  'x',  'y',  'z']
-  let fillNum = []
-  let newArr = []
-
-
-  while (newArr.length < strArr.length) {
-    fillNum.push(numArr)
-    // console.log(fillNum.flat());
-    newArr = [...fillNum.flat()] 
+  while (fillNum.length < strArr.length) {
+    fillNum.push(...numArr);
   }
 
-  let ansArr = strArr.map((item, index) =>     
-  (letterArr.indexOf(item) + 1) + parseInt(newArr[index])
-  )
+  let ansArr = strArr.map(
+    (item, index) => letterArr.indexOf(item) + 1 + parseInt(fillNum[index])
+  );
 
   return ansArr;
-
 }
 
-
-
-encode("masterpiece",1939)
+console.log(encode('masterpiece', 1939));
+encode('masterpiece', 1939);
