@@ -97,10 +97,9 @@ let triplets1 = [
   ['w', 'h', 's'],
 ];
 
-// recoverSecret(triplets1);
-
 const recoverSecret = (triplets) => {
   let duplets = [];
+  let res = '';
 
   triplets.forEach((element) => {
     let str = element.join('');
@@ -117,16 +116,23 @@ const recoverSecret = (triplets) => {
       // console.log(duplets, 'not in d2');
     }
   });
-  console.log(duplets);
 
-  function findNext(duplets) {
-    // 1st char is not the 2nd char in any duplet
-    let nxt = duplets.find((d) => duplets.every((_d) => d[0] !== _d[1]));
-    console.log(nxt);
-    return duplets.length > 1 ? nxt[0] : duplets[0];
+  let nxt = findNext(duplets);
+  while (nxt) {
+    res += nxt;
+    console.log(duplets);
+    duplets = duplets.filter((d) => d.indexOf(nxt) === -1);
+    nxt = findNext(duplets);
   }
 
-  findNext(duplets);
+  return res;
 };
 
-console.log(recoverSecret(triplets1));
+function findNext(duplets) {
+  // 1st char is not the 2nd char in any duplet
+  let nxt = duplets.find((d) => duplets.every((_d) => d[0] !== _d[1]));
+  let ans = duplets.length > 1 ? nxt[0] : duplets[0];
+  return ans;
+}
+
+// console.log(recoverSecret(triplets1));
