@@ -26,3 +26,32 @@
 
 // High Performance Tests: 80
 // Length of the arrays between 15 and 100 (Python and Ruby) and between 15 and 50 in javascript and Lua
+
+function estSubsets(arr) {
+  let newArr = new Set(arr);
+  console.log(newArr);
+  let count = 0;
+  for (let i = 0; i <= newArr.size + 1; i++) {
+    count += i;
+  }
+  console.log(count);
+  return count;
+}
+
+estSubsets([
+  'a',
+  'z',
+  'z',
+  'z',
+  'b',
+  'j',
+  'f',
+  'k',
+  'b',
+  'd',
+  'j',
+  'j',
+  'n',
+  'm',
+  'm',
+]);
