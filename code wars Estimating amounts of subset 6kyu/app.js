@@ -28,30 +28,47 @@
 // Length of the arrays between 15 and 100 (Python and Ruby) and between 15 and 50 in javascript and Lua
 
 function estSubsets(arr) {
-  let newArr = new Set(arr);
-  console.log(newArr);
-  let count = 0;
-  for (let i = 0; i <= newArr.size + 1; i++) {
-    count += i;
+  // i removed duplicating elements with the new Set method
+  let newArr = Array.from(new Set(arr));
+  let count = 1;
+  let sumAns = 0;
+  let permutationArr = [];
+
+  // first loop is to get all permutations of my factorial
+  for (let i = 1; i <= newArr.length; i++) {
+    count = count * i;
+    permutationArr.push(count);
   }
-  console.log(count);
-  return count;
+
+  // second loop finds the combination occurrence across each index
+  for (let i = 1; i <= newArr.length; i++) {
+    let difAns = newArr.length - i;
+    if (difAns > 0) {
+      let multiAns = permutationArr[i - 1] * permutationArr[difAns - 1];
+      sumAns += permutationArr[permutationArr.length - 1] / multiAns;
+    } else {
+      sumAns++;
+    }
+  }
+  return sumAns;
 }
 
-estSubsets([
-  'a',
-  'z',
-  'z',
-  'z',
-  'b',
-  'j',
-  'f',
-  'k',
-  'b',
-  'd',
-  'j',
-  'j',
-  'n',
-  'm',
-  'm',
-]);
+console.log(
+  estSubsets([
+    'a',
+    'z',
+    'z',
+    'z',
+    'b',
+    'j',
+    'f',
+    'k',
+    'b',
+    'd',
+    'j',
+    'j',
+    'n',
+    'm',
+    'm',
+  ])
+);
