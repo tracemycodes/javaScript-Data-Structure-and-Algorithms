@@ -72,3 +72,16 @@ console.log(
     'm',
   ])
 );
+
+
+
+// answers from other developers
+
+// function estSubsets(arr) {
+//     var set_ = new Set(arr);
+    
+//     return Math.pow(2, set_.size) - 1;
+// }
+
+
+
