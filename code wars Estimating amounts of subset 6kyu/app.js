@@ -73,15 +73,28 @@ console.log(
   ])
 );
 
-
-
 // answers from other developers
 
 // function estSubsets(arr) {
 //     var set_ = new Set(arr);
-    
+
 //     return Math.pow(2, set_.size) - 1;
 // }
 
+// function estSubsets(arr) {
+//   arr = Array.from(new Set(arr));
+//   var ans = [];
+//   var l = arr.length;
+//   for(var i=1; i<=l; i++){
+//     ans.push( fac(l) / (fac(i) * fac(l - i)))
+//   }
+//   return Math.round(ans.reduce((a,b) => a+b,0))
+// }
 
-
+// function fac(n){
+//   var ans = 1;
+//   for(var i=1; i<=n; i++){
+//     ans *= i
+//   }
+//   return ans
+// }
