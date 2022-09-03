@@ -26,7 +26,7 @@ function add(a, b) {
   let firstStr = a.length >= b.length ? a.split('') : b.split('');
   let secStr = a.length < b.length ? a : b;
   let lastCharCount = secStr.length - 1;
-  let ansArr = '';
+  let ansStr = '';
   let remainder = 0;
 
   for (let i = firstStr.length - 1; i >= 0; i--) {
@@ -42,9 +42,9 @@ function add(a, b) {
       remainder = 0;
       sumAns = sumAns.toString();
     }
-    ansArr = sumAns + ansArr;
+    ansStr = sumAns + ansStr;
   }
-  return ansArr;
+  return remainder > 0 ? remainder + ansStr : ansStr;
 }
 
-console.log(add('63829983432984289347293874', '90938498237058927340892374089'));
+console.log(add('888', '222'));
