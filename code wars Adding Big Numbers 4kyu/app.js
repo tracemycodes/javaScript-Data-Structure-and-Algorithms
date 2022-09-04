@@ -71,3 +71,22 @@ console.log(add('888', '222'));
 //       : add(a.slice(0, -1), b.slice(0, -1), (r = ~~(res / 10))) + (res % 10))(
 //     +a.slice(-1) + +b.slice(-1) + +r
 //   ).replace(/^0+/g, '');
+
+// lessons learnt
+
+// The “double tilde” (~~) operator is a double NOT Bitwise operator. Use it as a substitute for Math.floor(), since it’s faster.
+
+// Math.floor rounds up our number to the lowest fixed value
+
+const getFixedNumber = (digit) => {
+  return Math.floor(digit);
+};
+
+// The “double tilde” (~~) operator is a double NOT Bitwise operator, takes out the decimal away from the number
+
+const getWholeNumber = (num) => {
+  return ~~num;
+};
+
+console.log(getWholeNumber(44.5657)); // returns 44
+console.log(getFixedNumber(44.5657)); // returns 44
