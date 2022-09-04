@@ -48,3 +48,26 @@ function add(a, b) {
 }
 
 console.log(add('888', '222'));
+
+// other developers solutions on codewars
+
+// function add(a, b) {
+//   var res = '',
+//     c = 0;
+//   a = a.split('');
+//   b = b.split('');
+//   while (a.length || b.length || c) {
+//     c += ~~a.pop() + ~~b.pop();
+//     res = (c % 10) + res;
+//     c = c > 9;
+//   }
+//   return res;
+// }
+
+// const add = (a, b, r = 0) =>
+//   ((res) =>
+//     a == b && b == '' && r == 0
+//       ? ''
+//       : add(a.slice(0, -1), b.slice(0, -1), (r = ~~(res / 10))) + (res % 10))(
+//     +a.slice(-1) + +b.slice(-1) + +r
+//   ).replace(/^0+/g, '');
