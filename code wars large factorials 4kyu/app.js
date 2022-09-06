@@ -28,16 +28,36 @@
 // }
 
 function factorial(n) {
-  let ans = 0;
+  let ans = 1;
+  let totalSum;
 
-  for (i = 1; i <= n; i++) {
-    console.log('object', i);
-    for (j = 1; j <= i; j++) {
-      console.log(i);
+  function add(b, j, num) {
+    console.log(b, j, num);
+    // console.log(b, totalSum, ans);
+    var res = '',
+      c = 0;
+    a = ans.toString().split('');
+    b = b.toString().split('');
+    while (a.length || b.length || c) {
+      c += ~~a.pop() + ~~b.pop();
+      res = (c % 10) + res;
+      c = c > 9;
     }
+    totalSum = res;
+    // console.log(ans);
   }
 
-  return ans.toString();
+  for (i = 1; i <= n; i++) {
+    for (j = 1; j <= i; j++) {
+      // console.log(i, ans, j);
+      add(ans, j, i);
+    }
+    // console.log(totalSum);
+    ans = totalSum;
+  }
+  // console.log(ans);
+
+  // return ans.toString();
 }
 
-console.log(factorial(150));
+console.log(factorial(56));
