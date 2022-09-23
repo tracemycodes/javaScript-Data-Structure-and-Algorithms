@@ -14,50 +14,80 @@
 
 //     I have removed the use of require in the javascript language.
 
-// function add(a, b) {
-//   var res = '',
-//     c = 0;
-//   a = a.split('');
-//   b = b.split('');
-//   while (a.length || b.length || c) {
-//     c += ~~a.pop() + ~~b.pop();
-//     res = (c % 10) + res;
-//     c = c > 9;
-//   }
-//   return res;
-// }
-
 function factorial(n) {
   let ans = 1;
   let totalSum;
 
-  function add(b, j, num) {
-    console.log(b, j, num);
-    // console.log(b, totalSum, ans);
-    var res = '',
-      c = 0;
-    a = ans.toString().split('');
-    b = b.toString().split('');
-    while (a.length || b.length || c) {
-      c += ~~a.pop() + ~~b.pop();
-      res = (c % 10) + res;
-      c = c > 9;
+  function add(a, b, j) {
+    // console.log(a, b, j);
+    let firstStr = b.toString().split('');
+    let secStr = b.toString();
+    let lastCharCount = secStr.length - 1;
+    let ansStr = '';
+    let remainder = 0;
+    console.log('start');
+
+    for (let i = j; i >= 0; i--) {
+      console.log(i);
+      let inverseCount = firstStr.length - 1 - i;
+      const sumOne = Number(firstStr[i]);
+      const sumTwo = Number(secStr.charAt(lastCharCount - inverseCount));
+      let sumAns = sumOne + sumTwo + remainder;
+
+      if (sumAns > 9) {
+        remainder = 1;
+        sumAns = sumAns.toString().charAt(1);
+      } else {
+        remainder = 0;
+        sumAns = sumAns.toString();
+      }
+      ansStr = sumAns + ansStr;
     }
-    totalSum = res;
-    // console.log(ans);
+    totalSum = remainder > 0 ? remainder + ansStr : ansStr;
   }
 
-  for (i = 1; i <= n; i++) {
+  for (i = 2; i <= n; i++) {
     for (j = 1; j <= i; j++) {
-      // console.log(i, ans, j);
-      add(ans, j, i);
+      add(ans, ans, j);
     }
-    // console.log(totalSum);
-    ans = totalSum;
+    // ans = totalSum;
   }
-  // console.log(ans);
-
-  // return ans.toString();
 }
 
-console.log(factorial(56));
+// console.log(factorial(34));
+// factorial(6);
+
+// describe('Tests', () => {
+//   it('test', () => {
+//     Test.assertEquals(factorial(1), '1', '1!');
+//     Test.assertEquals(factorial(5), '120', '5!');
+//     Test.assertEquals(factorial(9), '362880', '9!');
+//     Test.assertEquals(factorial(15), '1307674368000', '15!');
+//   });
+// });
+
+function factorial(n) {
+  let ans = '1';
+  let totalSum = '0';
+  let stringAns = 0;
+
+  function add(j) {
+    stringAns = Number(totalSum) + Number(ans);
+
+    let firstStr = totalSum.split('');
+    let secStr = ans;
+    let lastCharCount = secStr.length - 1;
+    console.log(stringAns);
+  }
+
+  for (i = 2; i <= n; i++) {
+    for (j = 1; j <= i; j++) {
+      add(j);
+    }
+    ans = totalSum;
+    totalSum = '0';
+    // console.log(ans, 'count');
+  }
+}
+
+factorial(6);

@@ -15,3 +15,40 @@
 // Have fun coding it and please don't forget to vote and rank this kata! :-)
 
 // I have also created other katas. Take a look if you enjoyed this kata!
+
+function findMissingLetter(array) {
+  const alpha = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
+
+  for (const letter of array) {
+    console.log(letter);
+  }
+}
+
+findMissingLetter(['a', 'b', 'c', 'd', 'f']);
