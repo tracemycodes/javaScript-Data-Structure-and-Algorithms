@@ -45,10 +45,22 @@ function findMissingLetter(array) {
     'y',
     'z',
   ];
+  let letterIndex;
+  function getAns(letter, ans) {
+    if (letter.toLowerCase() === letter) {
+      return ans.toLowerCase();
+    } else {
+      return ans.toUpperCase();
+    }
+  }
 
   for (const letter of array) {
-    console.log(letter);
+    if (alpha.indexOf(letter.toLowerCase()) >= letterIndex + 2) {
+      let ans = alpha[letterIndex + 1];
+      return getAns(letter, ans);
+    }
+    letterIndex = alpha.indexOf(letter.toLowerCase());
   }
 }
 
-findMissingLetter(['a', 'b', 'c', 'd', 'f']);
+console.log(findMissingLetter(['O', 'Q', 'R', 'S']));
