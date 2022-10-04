@@ -20,7 +20,10 @@
 // The input will always be made of only lowercase letters and will never be empty.
 
 function wordsToMarks(string){
-    //your code here
+    let alphabetArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    return [...string].map(item => alphabetArr.indexOf(item) + 1 ).reduce((acc, item) => acc + item, 0);
 }
 
-wordsToMarks("attitude")
+
+
+console.log(wordsToMarks("attitude"));
