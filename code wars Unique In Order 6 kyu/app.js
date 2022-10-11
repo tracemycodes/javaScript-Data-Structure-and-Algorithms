@@ -10,16 +10,12 @@
 
 var uniqueInOrder = function (iterable) {
   let ansArr = [];
-  [...iterable].forEach((item , index) => {
-    if (index == 0) {
-        ansArr.push(item);
-    } else {
-        if (ansArr[ansArr.length - 1] != item) {
-            ansArr.push(item);
-        }
+  [...iterable].forEach((item, index) => {
+    if (ansArr[ansArr.length - 1] != item) {
+      ansArr.push(item);
     }
-} )
-return ansArr;
+  });
+  return ansArr;
 };
 
-console.log(uniqueInOrder('ABBCcAD'));
+console.log(uniqueInOrder("ABBCcAD"));
