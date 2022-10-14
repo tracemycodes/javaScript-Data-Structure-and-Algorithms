@@ -13,7 +13,6 @@ function reverse(str) {
 
   return StrArr.filter((item) => item !== "").map((item, index) => {
     if (index % 2 === 0) {
-        console.log("hello");
         return item;
     } else {
         return item.split('').reverse().join("");
