@@ -15,3 +15,28 @@
 // result -> [0, 1, 3] no chairs free in room 0, take 1 from room 1, take 3 from room 2. no need to consider room 3 as you have your 4 chairs already.
 
 // If you need no chairs, return "Game On". If there aren't enough spare chairs available, return "Not enough!".
+
+
+function meeting(x, need){
+    let chairSum = 0
+    let chairArr = []
+    if (need === 0) {
+        return 'Game On'
+    }
+    for (let i = 0; i < x.length; i++) {
+        const element = x[i];
+        let chairRemainder = element[0].length > element[1] ? 0  : element[1] - element[0].length
+        chairSum += chairRemainder
+        if (chairSum >= need) {
+            let lastRemainder = need - (chairSum - chairRemainder)
+            // let lastRemainder = (chairSum  - need) > 0 ? chairSum - need : chairRemainder
+            chairArr.push(lastRemainder)
+            return chairArr
+        }
+        chairArr.push(chairRemainder)
+    }
+    return "Not enough!"
+}
+
+
+console.log(meeting([['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9]], 4))
