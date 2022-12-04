@@ -19,21 +19,42 @@
 
 class PaginationHelper {
   constructor(collection, itemsPerPage) {
+    this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+    this.pageNumber = Math.ceil(this.collection.length / this.itemsPerPage);
     // The constructor takes in an array of items and a integer indicating how many
     // items fit within a single page
   }
   itemCount() {
     // returns the number of items within the entire collection
+    return this.collection.length;
   }
   pageCount() {
+    return Math.ceil(this.collection.length / this.itemsPerPage);
     // returns the number of pages
   }
   pageItemCount(pageIndex) {
+    const items = (pageIndex + 1) * this.itemsPerPage;
+    // console.log(items / this.itemsPerPage, items);
+    if (items / this.itemsPerPage > this.pageNumber || pageIndex < 0) {
+      return -1;
+    } else {
+      if (items > this.collection.length) {
+        return this.collection.length - (items - this.itemsPerPage);
+      } else {
+        return this.itemsPerPage;
+      }
+    }
     // returns the number of items on the current page. page_index is zero based.
     // this method should return -1 for pageIndex values that are out of range
-    console.log(pageIndex)
   }
   pageIndex(itemIndex) {
+    if (itemIndex > this.collection.length || itemIndex <= 0 || itemIndex === this.collection.length) {
+      return -1;
+    } else {
+      if (itemIndex === 0 && this.collection.length === 0) return -1;
+      return Math.floor(itemIndex / this.itemsPerPage);
+    }
     // determines what page an item is on. Zero based indexes
     // this method should return -1 for itemIndex values that are out of range
   }
@@ -45,9 +66,12 @@ const collection = [
 ];
 const helper = new PaginationHelper(collection, 10);
 
-helper.pageItemCount()
-
-
-
-
-
+// console.log('first')
+console.log("item count", helper.itemCount());
+console.log("page count", helper.pageCount());
+console.log("page index", helper.pageIndex(17));
+console.log("page index", helper.pageIndex(0));
+console.log("page index", helper.pageIndex(-23));
+helper.pageItemCount(0);
+helper.pageItemCount(1);
+helper.pageItemCount(2);
